@@ -1,4 +1,4 @@
-# Build a Simple Guessing Game
+<!-- # Build a Simple Guessing Game
 
 Let's create a simple guessing game.
 
@@ -49,4 +49,37 @@ while game.solved() == False:
 
 
 print(f"{last_guess} was correct!")
-```
+``` -->
+
+
+
+import random
+
+class GuessingGame():
+    def __init__(self, answer):
+        self.answer = answer
+        print(f"I'm thinking of a number between 1 and 100. Can you guess it?")
+    
+    def guess(self):
+        user_guess = int(input("Enter your guess: "))
+        return user_guess
+
+    def compare_answer(self, player_guess):
+        if player_guess == self.answer:
+            print(f"Congratulations! {player_guess} is correct. You win!")
+        elif player_guess > self.answer:
+            print(f"Too high! {player_guess} is larger than the correct answer.")
+        else:
+            print(f"Too low! {player_guess} is smaller than the correct answer.")
+
+# Generate a random answer for the game
+random_answer = random.randint(1, 100)
+
+# Create an instance of the GuessingGame with the random answer
+game = GuessingGame(random_answer)
+
+# Allow the player to make a guess
+user_guess = game.guess()
+
+# Compare the user's guess with the answer
+game.compare_answer(user_guess)
